@@ -1,0 +1,46 @@
+class InsurancePolicy
+{
+}
+
+class AutomobilePolicy
+{
+  isA InsurancePolicy;
+}
+
+class HomePolicy
+{
+  isA InsurancePolicy;
+}
+
+class LifeInsurance
+{
+  isA InsurancePolicy;
+}
+
+class InsuredProperty
+{
+}
+
+class InsuranceClient
+{
+}
+
+class Claim
+{
+  isA InsuranceClient;
+}
+
+class PolicyRenewal
+{
+  isA InsuranceClient;
+}
+
+class Beneficiary
+{
+  isA LifeInsurance;
+}
+
+class Dedutible
+{
+  isA InsurancePolicy;
+}

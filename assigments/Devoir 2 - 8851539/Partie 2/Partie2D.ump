@@ -1,0 +1,103 @@
+class Student
+{
+  isA Person;
+}
+
+class GraduateStudent
+{
+    isA Student;
+}
+
+class Employee
+{
+  isA Person;
+}
+
+class TeachingAssistant
+{
+  isA Employee;
+  }
+
+class Location
+{
+}
+class Classroom
+{
+  isA Room;
+}
+
+class Building
+{
+ isA Location;
+}
+
+class Labratory
+{
+  isA Room;
+}
+
+class Course
+{
+  String courseSection;
+isA Activity;
+}
+
+class Activity
+{
+  String TimeSlot;
+}
+
+class AdministrativeAssistant
+{
+  isA Employee;
+}
+
+
+class Gymnasium
+{
+  isA Room;
+}
+
+class Tutorial
+{
+  isA Activity;
+}
+
+class Professor
+{
+  isA Employee;
+}
+
+class ProgramOfStudies
+{
+  isA Activity;
+  }
+
+class Technician
+{
+  isA Employee;
+}
+
+class MeetingRoom
+{
+  isA Room;
+}
+
+class RegistrationSystem
+{
+}
+
+class Exam
+{
+  isA Activity;
+}
+
+class Person
+{
+  
+}
+
+class Room
+{
+  isA Location;
+}

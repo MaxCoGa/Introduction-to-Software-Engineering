@@ -1,0 +1,8 @@
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): P
+Enter the value of Rho using a decimal point(.): 5
+Enter the value of Theta using a decimal point(.): 5
+
+You entered:
+Stored as Polar  (5.0,5.0)
+Computed Cartesian as (4.9809734904587275, 0.4357787137382908)

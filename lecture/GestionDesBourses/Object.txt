@@ -1,0 +1,79 @@
+--this file contain the objects
+
+--cinq personnes etudiants
+!create rob:Etudiant
+!set rob.name:="Rob"
+!set rob.email:="Rob@email.com"
+!set rob.studentNumber:=00001
+!set rob.CGPA:=7.0
+
+!create eli:Etudiant
+!set eli.name:="Eli"
+!set eli.email:="Eli@email.com"
+!set eli.studentNumber:=00002
+!set eli.CGPA:=9.0
+
+!create bob:Etudiant
+!set bob.name:="Bob"
+!set bob.email:="Bob@email.com"
+!set bob.studentNumber:=00003
+!set bob.CGPA:=8.0
+
+!create emy:Etudiant
+!set emy.name:="Emy"
+!set emy.email:="Emy@email.com"
+!set emy.studentNumber:=00004
+!set emy.CGPA:=6.0
+
+!create tom:Etudiant
+!set tom.name:="Tom"
+!set tom.email:="Tom@email.com"
+!set tom.studentNumber:=00005
+!set tom.CGPA:=7.5
+--------------------------------------------
+
+
+
+--six bourses 
+!create bourseFrancais:Bourses
+!set bourseFrancais.type:=francais
+
+!create bourse_80:Bourses
+!set bourse_80.type:=admission
+
+!create bourse_90:Bourses
+!set bourse_90.type:=admission
+
+!create bourseOne:Bourses
+!set bourseOne.type:=reguliere
+
+!create bourseTwo:Bourses
+!set bourseTwo.type:=reguliere
+
+!create bourseThree:Bourses
+!set bourseThree.type:=reguliere
+----------------------------------------
+
+
+--cinq application
+!create application1:Application
+!create application2:Application
+!create application3:Application
+!create application4:Application
+!create application5:Application
+-------------------------------------------
+
+--Lien
+!insert(rob, application1) into fait
+!insert(eli, application2) into fait
+!insert(bob, application3) into fait
+!insert(emy, application4) into fait
+!insert(tom, application5) into fait
+
+!insert(application1, bourseFrancais) into obtient
+!insert(application2, bourse_90) into obtient
+!insert(application3, bourse_80) into obtient
+!insert(application3, bourseThree) into obtient
+!insert(application4, bourseOne) into obtient
+!insert(application5, bourseTwo) into obtient
+

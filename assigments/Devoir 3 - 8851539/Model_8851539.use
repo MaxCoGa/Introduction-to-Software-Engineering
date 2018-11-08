@@ -1,0 +1,181 @@
+model Model_8851539
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+-- classes
+
+class Etudiant
+attributes
+  name:String
+  email : String
+  studentNumber : Integer
+  CGPA: Real
+end
+
+class Administrateur
+attributes
+	name:String
+end
+
+--enum Type {admission, francais, reguliere}
+
+class Bourses 
+attributes
+  name : String
+  CGPA : Real
+  yearOfStudy:String
+  falculty:String
+  programOfStudy:String
+  valeur: Integer
+  type: String --Type
+  groupe: String --exclusives
+  --isExclusive: Boolean
+
+end
+	
+
+	
+
+class Recommandateur
+attributes
+  name : String
+end
+
+class Professeur < Recommandateur
+end
+
+class Employeur < Recommandateur
+
+end
+
+
+
+
+class LettresDeRecommandation
+attributes
+  nomRecommandateur : String
+  nomEtudiant : String
+  relationAvecEtudiant:String
+  scores:Real
+  course:String
+  termOfWork:String
+  companyName:String
+  comment:String 
+  startDayDate: Integer
+end
+
+class Application
+attributes
+	nomEtudiant : String
+	presentDayDate : Integer
+	--numberOfLetter : Integer
+end
+
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+-- associations
+
+association demande between
+	Etudiant[1]
+	Application[0..*]
+end
+
+
+association a between
+	Application[0..1]
+	LettresDeRecommandation[0..2]
+end
+
+
+
+association peutCree between
+	Administrateur[1]
+	Bourses[0..*]
+end
+
+association isMutuallyExclusiveWith between
+	Bourses[*] role bourse
+	Bourses[*] role memeBourse
+end
+
+
+composition ecrit between
+	Recommandateur[1]
+	LettresDeRecommandation[1..*]
+end
+
+
+association obtient between
+	Bourses[1..*]
+	Application[0..*]
+end
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+-- OCL constraints
+
+  constraints
+
+--Nom de l'etudiant ne peut pas etre vide. 1
+context Etudiant inv:
+	self.name.size()>0
+
+	
+--Les scores de competences de performance ou de recherche doit être comprise entre 0 et 5. 2 3
+context LettresDeRecommandation inv:
+	self.scores>= 0
+context LettresDeRecommandation inv:
+	self.scores<= 5
+	
+	
+--(Regulier) Les bourses exigent au plus deux lettres de recommandations.  4
+context Application inv:
+	self.lettresDeRecommandation->size()<=2
+	
+--Numero d'etudiant doit etre unique. 5
+context Etudiant inv:
+	Etudiant.allInstances()->isUnique(studentNumber)
+	
+--A recommender ne peut ecrire une lettre par application. 6
+context Application inv:
+	self.lettresDeRecommandation.recommandateur->isUnique(name)
+	
+-- Un etudiant ne peut pas demander a deux ou plusieurs bourses d'etudes appartenant au meme groupe (des bourses mutuellement exclusives). 7
+context Etudiant inv:
+ self.application.bourses->isUnique(groupe)
+ 
+--La date de debut de la periode de travail dans une lettre doit etre une date dans le passe. 8
+context LettresDeRecommandation inv:
+ startDayDate < self.application.presentDayDate
+
+--Les bourses d'admission ne necessitent pas de lettres de recommandation  9
+context Bourses inv:
+if self.type='admission'
+then self.application.lettresDeRecommandation->size()=0                                  ----self.application.numberOfLetter->size()=0
+else
+self.application.lettresDeRecommandation->size()>0
+endif
+
+
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+--context Bourses inv:
+	--pre: type=#admission
+	--post: 
+		--if type=#admission
+		--then
+			--self.application.lettresDeRecommandation->size()=0
+		--endif
+	--if type=#admission then self.application.lettresDeRecommandation->size()=0
+	--else
+	
+--	endif
+

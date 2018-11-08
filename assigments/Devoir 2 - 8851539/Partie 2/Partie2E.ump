@@ -1,0 +1,61 @@
+class Currency
+{
+}
+
+class ExchangeRate
+{
+}
+
+class FinancialInstitution
+{
+}
+
+class Bank
+{
+  isA FinancialInstitution;
+}
+
+class CreditUnion
+{
+  isA FinancialInstitution;
+}
+
+class CreditCardCompany
+{
+  isA FinancialInstitution;
+}
+
+class FinancialInstrument
+{
+}
+
+class CreditCard
+{
+  isA FinancialInstrument;
+}
+
+class DebitCard
+{
+  isA FinancialInstrument;
+}
+
+class Cheque
+{
+  isA FinancialInstrument;
+}
+
+class BankAccount
+{
+}
+
+class Loan
+{
+  isA BankAccount;
+}
+
+class BankMachine
+{
+}
+class BankBranch
+{
+}

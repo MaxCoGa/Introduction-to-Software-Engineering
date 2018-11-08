@@ -1,0 +1,121 @@
+class TopHat
+{
+}
+
+class Compte
+{
+	utilisateur;
+	motdepasse;
+	Integer numeroEtudiant;
+	* -- 1 TopHat;
+}
+
+class Professeurs
+{
+	isA Compte;
+  	public void addQuestion(Answer arg0){
+
+	}
+	1 -- 1 Activity;
+}
+
+class Etudiant
+{
+  	cellulaire;
+      email;
+	isA Compte;
+}
+
+
+class Cours
+{
+	codeDeCours;
+	public void setSection(Section arg0){
+
+	}
+    String nomDuCours;
+    String semestre;
+    String date; //J'ai mis un string car,(exemple)"18 octobre 2017"
+    status;
+	public void isActive(Boolean arg0){
+
+	}
+	* -- 1 TopHat;
+	1 -- * Activity;
+    1 -- 1 Professeurs;
+}
+
+class Activity
+{
+  
+	public void createQuestion(Professor arg0){
+
+	}
+	public void answerQuestion(Student arg0,Question arg1,Answer arg2){
+
+	}
+	1 -- * Etudiant;
+}
+
+class Questions
+{
+    dueDateHours;
+    
+  
+	status;
+	public void isActive(Boolean arg0){
+
+	}
+    public void isVisible(Boolean arg0){
+
+	}
+    public void seeAnswer(){
+    
+  }
+  
+  
+	* -- * Activity;
+    1 -- 1 Professeurs;
+
+}
+
+class Notes
+{
+    int note;
+	public Integer calculNote(){
+
+    }
+	* -- 1 Etudiant;
+    * -- 1..* Questions;
+}
+
+class Reponse
+{
+  	Integer value;
+	1..* -- 1 Questions;
+}
+
+class Tournois
+{
+  int timeLimit;
+  int answerLimit;
+  
+  enum questions; //ensemble de questions
+  
+  status;
+  
+  public void isActive(Boolean arg0){
+  }
+  
+  public Integer answerLimit(Professeurs arg0, answerLimit arg1){
+  }
+  
+  public Integer timeLimit(Professeurs arg0, timeLimit arg1){
+  }
+  
+  
+  
+  
+ // 1 -- 1 Questions;
+  1 -- 1 Professeurs;
+}

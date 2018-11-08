@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="button_07" />
+    <string name="button_08" />
+    <string name="button_09" />
+    <string name="button_add" />
+    <string name="button_04" />
+    <string name="button_05" />
+    <string name="button_06" />
+    <string name="button_minus" />
+    <string name="button_01" />
+    <string name="button_02" />
+    <string name="button_03" />
+    <string name="button_divide" />
+    <string name="button_clear" />
+    <string name="button_00" />
+    <string name="button_dot" />
+    <string name="button_multiply" />
+    <string name="button_result" />
+</resources>

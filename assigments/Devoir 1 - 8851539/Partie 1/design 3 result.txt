@@ -1,0 +1,8 @@
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): C
+Enter the value of X using a decimal point(.): 4.9809734904587275
+Enter the value of Y using a decimal point(.): 0.4357787137382908
+
+You entered:
+Stored as Cartesian (4.9809734904587275,0.4357787137382908)
+Computed Polar as (5.0, 4.999999999999999)
